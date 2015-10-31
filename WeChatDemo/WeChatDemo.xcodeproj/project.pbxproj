@@ -85,6 +85,7 @@
 		CC759B521BE3B192001BAD26 /* SJFriendGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = CC759B511BE3B192001BAD26 /* SJFriendGroup.m */; };
 		CC759B551BE3B20C001BAD26 /* SJSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC759B541BE3B20C001BAD26 /* SJSectionHeaderView.m */; };
 		CC759B581BE3B24C001BAD26 /* SJContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC759B571BE3B24C001BAD26 /* SJContactsViewController.m */; };
+		CC763D771BE4DEBE00B435F8 /* SJScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC763D761BE4DEBE00B435F8 /* SJScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +190,8 @@
 		CC759B541BE3B20C001BAD26 /* SJSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJSectionHeaderView.m; sourceTree = "<group>"; };
 		CC759B561BE3B24C001BAD26 /* SJContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJContactsViewController.h; sourceTree = "<group>"; };
 		CC759B571BE3B24C001BAD26 /* SJContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJContactsViewController.m; sourceTree = "<group>"; };
+		CC763D751BE4DEBE00B435F8 /* SJScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJScrollView.h; sourceTree = "<group>"; };
+		CC763D761BE4DEBE00B435F8 /* SJScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +394,8 @@
 				CC759B441BE3A3B5001BAD26 /* SJGroupBuyTableViewCell.m */,
 				CC759B461BE3A3EC001BAD26 /* SJCellModel.h */,
 				CC759B471BE3A3EC001BAD26 /* SJCellModel.m */,
+				CC763D751BE4DEBE00B435F8 /* SJScrollView.h */,
+				CC763D761BE4DEBE00B435F8 /* SJScrollView.m */,
 			);
 			name = GroupBuy;
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC763D771BE4DEBE00B435F8 /* SJScrollView.m in Sources */,
 				CC759A991BE399F2001BAD26 /* ViewController.m in Sources */,
 				CC759A961BE399F2001BAD26 /* AppDelegate.m in Sources */,
 				CC759B4F1BE3B170001BAD26 /* SJFriend.m in Sources */,
@@ -804,6 +810,7 @@
 				CC759AB21BE399F2001BAD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CC759AB31BE399F2001BAD26 /* Build configuration list for PBXNativeTarget "WeChatDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -812,6 +819,7 @@
 				CC759AB51BE399F2001BAD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

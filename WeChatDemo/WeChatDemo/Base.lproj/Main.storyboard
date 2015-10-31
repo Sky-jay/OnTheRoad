@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Contacts View Controller-->
+        <!--通讯录-->
         <scene sceneID="y2X-Ky-JP6">
             <objects>
                 <viewController id="bhd-r9-5jX" customClass="SJContactsViewController" sceneMemberID="viewController">
@@ -27,7 +27,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Qmg-bZ-lSS"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="Qmg-bZ-lSS"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="DNp-Qg-VBi" id="ZD0-0b-NPe"/>
@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="843.5" y="-16.5"/>
         </scene>
-        <!--Group Buy View Controller-->
+        <!--团购-->
         <scene sceneID="TV6-VZ-hS2">
             <objects>
                 <viewController id="BEI-hs-Fss" customClass="SJGroupBuyViewController" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eyK-HA-MO7"/>
+                    <navigationItem key="navigationItem" title="团购" id="eyK-HA-MO7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwW-DS-EzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,7 +116,7 @@
             </objects>
             <point key="canvasLocation" x="843.5" y="-788.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--设置-->
         <scene sceneID="QUx-oB-GVc">
             <objects>
                 <tableViewController id="GiT-5R-Lyg" sceneMemberID="viewController">
@@ -228,7 +228,7 @@
                             <outlet property="delegate" destination="GiT-5R-Lyg" id="uPN-KZ-zbu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="IiI-N6-uNW"/>
+                    <navigationItem key="navigationItem" title="设置" id="IiI-N6-uNW"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lui-gl-f83" userLabel="First Responder" sceneMemberID="firstResponder"/>

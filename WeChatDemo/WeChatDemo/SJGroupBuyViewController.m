@@ -9,23 +9,32 @@
 #import "SJGroupBuyViewController.h"
 #import "SJGroupBuyTableViewCell.h"
 #import "SJCellModel.h"
+#import "SJScrollView.h"
 
-@interface SJGroupBuyViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface SJGroupBuyViewController ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (nonatomic, strong)NSArray *datas;
+@property(nonatomic,strong)UIScrollView *scrollView;
 
 @end
 
 @implementation SJGroupBuyViewController
-
+#define SJScreenW [UIScreen mainScreen].bounds.size.width
+#define SJScrollH 100
 static NSString *identifier = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITableView *groupBuyTableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].applicationFrame style:UITableViewStylePlain];
+    [self addScrollView];
+    
+    [self addSubViewForScrollView];
+    
+    UITableView *groupBuyTableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
     [self.view addSubview:groupBuyTableView];
     groupBuyTableView.delegate = self;
     groupBuyTableView.dataSource = self;
     groupBuyTableView.rowHeight = 100;
+    groupBuyTableView.tableHeaderView = _scrollView;
+    
 }
 
 - (NSArray *)datas
@@ -65,14 +74,42 @@ static NSString *identifier = @"cell";
     cell.imageView.image = [UIImage imageNamed:model.icon];
     return cell;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - ScrollView
+
+-(void)addScrollView
+{
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SJScreenW, SJScrollH)];
+    [self.view addSubview:scrollView];
+    
+    scrollView.contentSize = CGSizeMake(SJScreenW * 3, SJScrollH);
+    
+    scrollView.pagingEnabled = YES;
+    
+    scrollView.showsHorizontalScrollIndicator = NO;
+    
+    //scrollView.showsVerticalScrollIndicator = NO;
+    
+    scrollView.delegate = self;
+    
+    _scrollView = scrollView;
+    
+    _scrollView.backgroundColor = [UIColor redColor];
+    
 }
-*/
+//在底部的ScrollView上添加缩放的scrollView
+-(void)addSubViewForScrollView
+{
+    for (int i = 0; i < 3; i++) {
+        
+        SJScrollView *sjScrollView = [[SJScrollView alloc] initWithFrame:CGRectMake(SJScreenW * i, 0, SJScreenW, SJScrollH)];
+        [_scrollView addSubview:sjScrollView];
+        
+        NSString *imageName = [NSString stringWithFormat:@"new_feature_%d",i +  1];
+        
+        sjScrollView.img = [UIImage imageNamed:imageName];
+    }
+}
+
 
 @end
