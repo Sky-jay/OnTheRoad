@@ -13,7 +13,7 @@
 
 @interface SJGroupBuyViewController ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (nonatomic, strong)NSArray *datas;
-@property(nonatomic,strong)UIScrollView *scrollView;
+@property (nonatomic, strong)UIScrollView *scrollView;
 
 @end
 

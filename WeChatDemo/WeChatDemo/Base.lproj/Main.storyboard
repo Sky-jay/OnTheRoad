@@ -143,6 +143,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="EgF-wu-KUQ" kind="show" id="2Re-Lm-o65"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rhY-9F-n6l">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -234,6 +237,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lui-gl-f83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1247.5" y="-16.5"/>
+        </scene>
+        <!--Photo Album View Controller-->
+        <scene sceneID="Kye-v4-0rA">
+            <objects>
+                <viewController id="EgF-wu-KUQ" customClass="SJPhotoAlbumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nob-a7-5pd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rbu-bz-sWf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mvd-9P-3gs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qbe-du-xfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728.5" y="-16.5"/>
         </scene>
         <!--设置-->
         <scene sceneID="Ufe-gu-teQ">
