@@ -12,9 +12,9 @@
 #import "SJScrollView.h"
 
 @interface SJGroupBuyViewController ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
-@property (nonatomic, strong)NSArray *datas;
-@property (nonatomic, strong)UIScrollView *scrollView;
-
+@property (nonatomic, strong) NSArray *datas;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation SJGroupBuyViewController
@@ -30,11 +30,28 @@ static NSString *identifier = @"cell";
     
     UITableView *groupBuyTableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
     [self.view addSubview:groupBuyTableView];
+    _tableView = groupBuyTableView;
     groupBuyTableView.delegate = self;
     groupBuyTableView.dataSource = self;
     groupBuyTableView.rowHeight = 100;
     groupBuyTableView.tableHeaderView = _scrollView;
     
+    //添加右边的UIBarButtonItem
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editAction:)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+
+}
+
+-(void)editAction:(UIBarButtonItem *)barButtonItem
+{
+    if ([barButtonItem.title isEqualToString:@"编辑"]) {
+        [_tableView setEditing:YES animated:YES];
+        barButtonItem.title = @"完成";
+    }else{
+        [_tableView setEditing:NO animated:YES];
+        barButtonItem.title = @"编辑";
+    }
 }
 
 - (NSArray *)datas
@@ -108,6 +125,34 @@ static NSString *identifier = @"cell";
         NSString *imageName = [NSString stringWithFormat:@"new_feature_%d",i +  1];
         
         sjScrollView.img = [UIImage imageNamed:imageName];
+    }
+}
+
+#pragma mark - Edit
+
+//编辑（增加，删除）
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+//指定编辑风格
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        //更改数据源
+//        [array removeObjectAtIndex:indexPath.row];
+        
+        //更改界面
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
 
