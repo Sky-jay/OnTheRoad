@@ -37,6 +37,48 @@
             </objects>
             <point key="canvasLocation" x="843.5" y="-16.5"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="sSV-uJ-yse">
+            <objects>
+                <viewController storyboardIdentifier="webVC" id="BDg-hh-YGM" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QG0-82-LQu"/>
+                        <viewControllerLayoutGuide type="bottom" id="JDZ-ey-mgh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0d4-Sl-Qzr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fDT-MS-VE8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rVy-Kh-0IP">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="详情" id="0Nh-kW-Xir">
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="uBO-du-IuT">
+                                            <connections>
+                                                <action selector="backBTNAction:" destination="BDg-hh-YGM" id="dtb-ZF-v6l"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="1Ao-u5-76S"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="backBTN" destination="uBO-du-IuT" id="GFu-BN-V7c"/>
+                        <outlet property="webView" destination="fDT-MS-VE8" id="8Yq-OM-K1X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S7w-CT-XKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420.5" y="715.5"/>
+        </scene>
         <!--团购-->
         <scene sceneID="TV6-VZ-hS2">
             <objects>
@@ -50,7 +92,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="团购" id="eyK-HA-MO7"/>
+                    <navigationItem key="navigationItem" title="团购" id="eyK-HA-MO7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="l5g-yZ-qv7">
+                            <connections>
+                                <action selector="searchAction:" destination="BEI-hs-Fss" id="29i-hd-I5b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwW-DS-EzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,7 +130,7 @@
         <scene sceneID="5HB-aH-Ant">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1ao-GY-MNX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="团购" image="tabbar_mainframeHL.png" selectedImage="tabbar_mainframe.png" id="as6-V3-UuT"/>
+                    <tabBarItem key="tabBarItem" title="团购" image="tabbar_mainframe.png" id="as6-V3-UuT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W9L-3n-6Nh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -101,7 +149,7 @@
         <scene sceneID="hN1-2d-GFe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WAL-qf-gew" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="通讯录" image="tabbar_contacts.png" selectedImage="tabbar_contactsHL.png" id="8aF-aY-Wip"/>
+                    <tabBarItem key="tabBarItem" title="通讯录" image="tabbar_contacts.png" id="8aF-aY-Wip"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uoE-r7-ljt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -123,7 +171,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="mYj-sv-FFr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="yjX-5k-BRX">
                                 <cells>
@@ -135,7 +183,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="相册" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP4-vA-zZw">
                                                     <rect key="frame" x="60" y="0.0" width="300" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MoreMyAlbum@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="2WZ-ez-xWu">
@@ -155,7 +203,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="收藏" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NH8-qz-Ir2">
                                                     <rect key="frame" x="60" y="0.0" width="300" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MoreMyFavorites@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ews-QF-WyT">
@@ -175,7 +223,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="钱包" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVQ-p7-A0q">
                                                     <rect key="frame" x="60" y="0.0" width="300" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -196,7 +244,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="表情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bf-Y4-8X6">
                                                     <rect key="frame" x="60" y="0.0" width="300" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -217,7 +265,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="设置" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7x-jd-pya">
                                                     <rect key="frame" x="60" y="0.0" width="300" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -261,7 +309,7 @@
         <scene sceneID="Ufe-gu-teQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rmh-LZ-ojo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" image="tabbar_me.png" selectedImage="tabbar_meHL.png" id="78b-DV-hA3"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="tabbar_me.png" id="78b-DV-hA3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B2m-Ve-Me7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -284,10 +332,7 @@
         <image name="MoreMyFavorites@3x.png" width="75" height="75"/>
         <image name="MoreSetting@3x.png" width="75" height="75"/>
         <image name="tabbar_contacts.png" width="27" height="23"/>
-        <image name="tabbar_contactsHL.png" width="27" height="23"/>
         <image name="tabbar_mainframe.png" width="25" height="23"/>
-        <image name="tabbar_mainframeHL.png" width="25" height="23"/>
         <image name="tabbar_me.png" width="23" height="23"/>
-        <image name="tabbar_meHL.png" width="23" height="23"/>
     </resources>
 </document>

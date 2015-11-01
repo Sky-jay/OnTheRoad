@@ -10,11 +10,16 @@
 #import "SJGroupBuyTableViewCell.h"
 #import "SJCellModel.h"
 #import "SJScrollView.h"
+#import "ResultTableViewController.h"
+#import "WebViewController.h"
 
 @interface SJGroupBuyViewController ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (nonatomic, strong) NSArray *datas;
+@property (nonatomic, strong) NSMutableArray *Editarray;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UISearchController *searchController;
+
 @end
 
 @implementation SJGroupBuyViewController
@@ -36,11 +41,29 @@ static NSString *identifier = @"cell";
     groupBuyTableView.rowHeight = 100;
     groupBuyTableView.tableHeaderView = _scrollView;
     
-    //添加右边的UIBarButtonItem
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editAction:)];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editAction:)];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+/*********************Search************************************/
+    ResultTableViewController *resultVC = [[ResultTableViewController alloc] init];
 
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:resultVC];
+    _searchController.hidesNavigationBarDuringPresentation = YES;
+    _searchController.dimsBackgroundDuringPresentation = NO;
+    _searchController.searchResultsUpdater = resultVC;
+    
+/*********************Refresh*****************************************/
+    UIRefreshControl *freshControl = [[UIRefreshControl alloc] init];
+    [_tableView addSubview:freshControl];
+    [freshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+}
+
+-(void)refresh:(UIRefreshControl *)fresh
+{
+    [fresh performSelector:@selector(endRefreshing) withObject:nil afterDelay:2];
+}
+
+- (IBAction)searchAction:(UIBarButtonItem *)sender {
+    [self presentViewController:_searchController animated:YES completion:nil];
 }
 
 -(void)editAction:(UIBarButtonItem *)barButtonItem
@@ -58,7 +81,8 @@ static NSString *identifier = @"cell";
 {
     if (_datas == nil) {
         NSString *path = [[NSBundle mainBundle]pathForResource:@"tgs" ofType:@"plist"];
-        NSArray *array = [NSArray arrayWithContentsOfFile:path];
+        _Editarray = [NSMutableArray arrayWithContentsOfFile:path];
+        NSArray *array =_Editarray;
         
         NSMutableArray *models = [NSMutableArray array];
         for (NSDictionary *dict in array) {
@@ -89,6 +113,7 @@ static NSString *identifier = @"cell";
     cell.detailTextLabel.text = model.price;
     cell.SJLable.text = model.buycount;
     cell.imageView.image = [UIImage imageNamed:model.icon];
+    
     return cell;
 }
 
@@ -148,7 +173,7 @@ static NSString *identifier = @"cell";
     
     if (editingStyle == UITableViewCellEditingStyleDelete){
         //更改数据源
-//        [array removeObjectAtIndex:indexPath.row];
+        [_Editarray removeObjectAtIndex:indexPath.row];
         
         //更改界面
         
@@ -156,5 +181,21 @@ static NSString *identifier = @"cell";
     }
 }
 
+#pragma mark - WebView
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //获取storyBoard
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    //从storyBoard中获取userVC
+    
+    WebViewController *webVC = [storyBoard instantiateViewControllerWithIdentifier:@"webVC"];
+    //登录
+    //QYUserViewController *userVC = [[QYUserViewController alloc] init];
+    
+    //用模态的方式切换视图控制器
+    [self presentViewController:webVC animated:YES completion:^{    }];
+    return indexPath;
+}
 @end
