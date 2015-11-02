@@ -26,18 +26,13 @@
     return self;
 }
 
-
-//设置imageView的Image
 -(void)setImg:(UIImage *)img
 {
-    //setter方法本身要完成的事情
     _img = img;
     
-    //额外完成的事情
     _imgView.image = img;
 }
 
-//方法设置
 -(void)setImage:(UIImage *)image
 {
     _imgView.image = image;

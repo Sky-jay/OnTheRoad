@@ -22,7 +22,7 @@
     
     _webView.scalesPageToFit = YES;
     [self loadReuqest];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 - (IBAction)backBTNAction:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:^{    }];

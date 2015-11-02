@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //添加右边的UIBarButtonItem
+    
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editAction:)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
@@ -30,7 +30,7 @@
     _searchController.dimsBackgroundDuringPresentation = NO;
     _searchController.hidesNavigationBarDuringPresentation = YES;
     _searchController.searchBar.frame = CGRectMake(0, 0, 375, 44);
-    //设置tableView的头尾视图
+    
     _tableView.tableHeaderView = _searchController.searchBar;
     _searchController.searchResultsUpdater = self;
 }
@@ -47,7 +47,7 @@
 }
 
 static NSString *identifier = @"cell";
-//懒加载
+
 -(NSArray *)groups
 {
     if (_groups == nil) {
@@ -66,12 +66,12 @@ static NSString *identifier = @"cell";
 
 
 #pragma mark - UITableViewDataSource
-//组数
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.groups.count;
 }
-//每组行数
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     SJFriendGroup *friendGroup = self.groups[section];
@@ -80,7 +80,7 @@ static NSString *identifier = @"cell";
     }
     return 0;
 }
-//每行单元格
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -101,26 +101,18 @@ static NSString *identifier = @"cell";
     return cell;
 }
 
-//设置sectionHeaderView高
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 44;
 }
 
-#if 0
-//section的头标题
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    QYFriendGroup *friendGroup = self.groups[section];
-    return friendGroup.name;
-}
-#endif
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    //创建sectionHeaderView（已经复用）
+    
     SJSectionHeaderView *sectionHeaderView = [SJSectionHeaderView headerViewWithTableView:tableView];
-    //取出当前section对应的数据模型QYFriendGroup
+    
     SJFriendGroup *fg = self.groups[section];
     sectionHeaderView.friendGroup = fg;
     
@@ -138,7 +130,7 @@ static NSString *identifier = @"cell";
     return YES;
 }
 
-//指定编辑风格
+
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewCellEditingStyleDelete;
@@ -151,17 +143,15 @@ static NSString *identifier = @"cell";
     NSMutableArray *array = [NSMutableArray arrayWithArray:friendGroup.friends];
     
     if (editingStyle == UITableViewCellEditingStyleDelete){
-        //更改数据源
-        [array removeObjectAtIndex:indexPath.row];
         
-        //更改界面
+        [array removeObjectAtIndex:indexPath.row];
+
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
 
 
-//移动
 
 -(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -170,30 +160,26 @@ static NSString *identifier = @"cell";
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    //取出源单元格所在的section的数据
-    //取当前section在字典中对应的键
+
     SJFriendGroup *sourceFriendGroup = self.groups[sourceIndexPath.section];
     
     SJFriend *sourceFriend = sourceFriendGroup.friends[sourceIndexPath.row];
     NSMutableArray *sourceArray = [NSMutableArray arrayWithArray:sourceFriendGroup.friends];
-    //拿键取section的数据
 
-    //移动的单元格的内容
+
     SJFriend *tempFriend = sourceArray[sourceIndexPath.row];
    
-    //从sourceArray中删除sourceString
+ 
     [sourceArray removeObjectAtIndex:sourceIndexPath.row];
     
-    //取出目标的单元格所在的section的数据
-    //取当前目标section在字典中对应的键
+
     SJFriendGroup *destinationFriendGroup = self.groups[destinationIndexPath.section];
     
     SJFriend *destinationFriend = destinationFriendGroup.friends[destinationIndexPath.row];
     NSMutableArray *destinationArray = [NSMutableArray arrayWithArray:destinationFriendGroup.friends];
-    //取目标section的数据
 
-    
-    //把移动的数据插入到destinationArray
+
+
     [destinationArray insertObject:sourceFriend atIndex:destinationIndexPath.row];
     
 }

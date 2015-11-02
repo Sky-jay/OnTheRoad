@@ -24,7 +24,7 @@
 {
     [super layoutSubviews];
     self.textLabel.frame = CGRectMake(170, 5, 200, 30);
-    //    self.textLabel.font = [UIFont boldSystemFontOfSize:15];
+   
     self.detailTextLabel.frame = CGRectMake(170, 70, 100, 30);
     _SJLable.frame = CGRectMake(250, 40, 100, 30);
     

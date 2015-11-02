@@ -14,7 +14,7 @@
 {
     if (self = [super init]) {
         [self setValuesForKeysWithDictionary:dict];
-        //把friends中的字典转换成模型friend
+        
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *dict in self.friends) {
             SJFriend *friend = [SJFriend friendWithDictionary:dict];

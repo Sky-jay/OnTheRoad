@@ -155,14 +155,12 @@ static NSString *identifier = @"cell";
 
 #pragma mark - Edit
 
-//编辑（增加，删除）
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
-//指定编辑风格
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewCellEditingStyleDelete;
@@ -172,10 +170,8 @@ static NSString *identifier = @"cell";
 {
     
     if (editingStyle == UITableViewCellEditingStyleDelete){
-        //更改数据源
+ 
         [_Editarray removeObjectAtIndex:indexPath.row];
-        
-        //更改界面
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
@@ -185,16 +181,11 @@ static NSString *identifier = @"cell";
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //获取storyBoard
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    
-    //从storyBoard中获取userVC
+
     
     WebViewController *webVC = [storyBoard instantiateViewControllerWithIdentifier:@"webVC"];
-    //登录
-    //QYUserViewController *userVC = [[QYUserViewController alloc] init];
-    
-    //用模态的方式切换视图控制器
+
     [self presentViewController:webVC animated:YES completion:^{    }];
     return indexPath;
 }
