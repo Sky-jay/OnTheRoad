@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="23.5" y="1388.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Third View Controller-->
         <scene sceneID="wxk-3q-Btv">
             <objects>
-                <viewController id="szl-Mx-7fb" sceneMemberID="viewController">
+                <viewController id="szl-Mx-7fb" customClass="ThirdViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FPA-6M-VnG"/>
                         <viewControllerLayoutGuide type="bottom" id="wKh-rY-JOw"/>
@@ -84,10 +84,26 @@
                     <view key="view" contentMode="scaleToFill" id="6dO-kz-Jrt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER8-LN-bMv">
+                                <rect key="frame" x="87" y="452" width="200" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igJ-0n-Swb">
+                                <rect key="frame" x="0.0" y="102" width="375" height="200"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="singleicon.png" id="h8D-Fp-H2A"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="label" destination="ER8-LN-bMv" id="cPM-KT-lEf"/>
+                        <outlet property="pickerView" destination="igJ-0n-Swb" id="KDq-pM-chc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZi-my-94P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
