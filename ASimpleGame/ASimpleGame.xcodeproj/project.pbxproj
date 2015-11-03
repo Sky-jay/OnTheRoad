@@ -33,6 +33,7 @@
 		CC8C9CB31BE788340049E99A /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C9CB21BE788340049E99A /* FirstViewController.m */; };
 		CC8C9CB61BE78F150049E99A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C9CB51BE78F150049E99A /* ThirdViewController.m */; };
 		CC8C9CB91BE7A18D0049E99A /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C9CB81BE7A18D0049E99A /* FourthViewController.m */; };
+		CC901F581BE8CB1400F9B827 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC901F571BE8CB1400F9B827 /* FifthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		CC8C9CB51BE78F150049E99A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		CC8C9CB71BE7A18D0049E99A /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
 		CC8C9CB81BE7A18D0049E99A /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
+		CC901F561BE8CB1400F9B827 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
+		CC901F571BE8CB1400F9B827 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,8 @@
 				CC8C9CB51BE78F150049E99A /* ThirdViewController.m */,
 				CC8C9CB71BE7A18D0049E99A /* FourthViewController.h */,
 				CC8C9CB81BE7A18D0049E99A /* FourthViewController.m */,
+				CC901F561BE8CB1400F9B827 /* FifthViewController.h */,
+				CC901F571BE8CB1400F9B827 /* FifthViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC901F581BE8CB1400F9B827 /* FifthViewController.m in Sources */,
 				CC8C9CAF1BE76C1C0049E99A /* SecondViewController.m in Sources */,
 				CC8C9C6C1BE767480049E99A /* ViewController.m in Sources */,
 				CC8C9CB61BE78F150049E99A /* ThirdViewController.m in Sources */,
@@ -542,6 +548,7 @@
 				CC8C9C851BE767480049E99A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CC8C9C861BE767480049E99A /* Build configuration list for PBXNativeTarget "ASimpleGameTests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +557,7 @@
 				CC8C9C881BE767480049E99A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

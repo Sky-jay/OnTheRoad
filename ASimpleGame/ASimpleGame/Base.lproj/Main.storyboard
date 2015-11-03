@@ -142,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="859.5" y="1388.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Fifth View Controller-->
         <scene sceneID="HrL-bY-R8O">
             <objects>
-                <viewController id="kKV-i1-RPM" sceneMemberID="viewController">
+                <viewController id="kKV-i1-RPM" customClass="FifthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EYj-6T-uLL"/>
                         <viewControllerLayoutGuide type="bottom" id="BWQ-6I-TOt"/>
