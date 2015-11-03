@@ -59,7 +59,7 @@
     alertView.alertViewStyle = UIAlertViewStyleDefault;
     [alertView show];
 #else
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:string delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"信息有误，点此反馈！" otherButtonTitles:nil, nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:string delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"信息有误，点此反馈！" otherButtonTitles:nil, nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleAutomatic;
     [actionSheet showInView:self.view];
     
