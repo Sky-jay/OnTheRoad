@@ -32,6 +32,7 @@
 		CC8C9CAF1BE76C1C0049E99A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C9CAE1BE76C1C0049E99A /* SecondViewController.m */; };
 		CC8C9CB31BE788340049E99A /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C9CB21BE788340049E99A /* FirstViewController.m */; };
 		CC8C9CB61BE78F150049E99A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C9CB51BE78F150049E99A /* ThirdViewController.m */; };
+		CC8C9CB91BE7A18D0049E99A /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C9CB81BE7A18D0049E99A /* FourthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		CC8C9CB21BE788340049E99A /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		CC8C9CB41BE78F150049E99A /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		CC8C9CB51BE78F150049E99A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		CC8C9CB71BE7A18D0049E99A /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
+		CC8C9CB81BE7A18D0049E99A /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,8 @@
 				CC8C9CAE1BE76C1C0049E99A /* SecondViewController.m */,
 				CC8C9CB41BE78F150049E99A /* ThirdViewController.h */,
 				CC8C9CB51BE78F150049E99A /* ThirdViewController.m */,
+				CC8C9CB71BE7A18D0049E99A /* FourthViewController.h */,
+				CC8C9CB81BE7A18D0049E99A /* FourthViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				CC8C9CB61BE78F150049E99A /* ThirdViewController.m in Sources */,
 				CC8C9CB31BE788340049E99A /* FirstViewController.m in Sources */,
 				CC8C9C691BE767480049E99A /* AppDelegate.m in Sources */,
+				CC8C9CB91BE7A18D0049E99A /* FourthViewController.m in Sources */,
 				CC8C9C661BE767480049E99A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

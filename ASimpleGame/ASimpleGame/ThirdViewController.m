@@ -25,8 +25,10 @@
     _pickerView.delegate = self;
     _pickerView.dataSource = self;
     //设置label的圆角，无效。
-    _label.layer.cornerRadius = 20;
+    _label.layer.cornerRadius = 6;
     _label.text = self.datas[0];
+    _label.clipsToBounds = YES;
+    
 }
 
 - (NSArray *)datas
