@@ -14,8 +14,7 @@
 #import "WebViewController.h"
 
 @interface SJGroupBuyViewController ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
-@property (nonatomic, strong) NSArray *datas;
-@property (nonatomic, strong) NSMutableArray *Editarray;
+@property (nonatomic, strong) NSMutableArray *datas;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISearchController *searchController;
@@ -48,8 +47,9 @@ static NSString *identifier = @"cell";
 
     _searchController = [[UISearchController alloc] initWithSearchResultsController:resultVC];
     _searchController.hidesNavigationBarDuringPresentation = YES;
-    _searchController.dimsBackgroundDuringPresentation = NO;
+    _searchController.dimsBackgroundDuringPresentation = YES;
     _searchController.searchResultsUpdater = resultVC;
+    resultVC.array = self.datas;
     
 /*********************Refresh*****************************************/
     UIRefreshControl *freshControl = [[UIRefreshControl alloc] init];
@@ -81,8 +81,7 @@ static NSString *identifier = @"cell";
 {
     if (_datas == nil) {
         NSString *path = [[NSBundle mainBundle]pathForResource:@"tgs" ofType:@"plist"];
-        _Editarray = [NSMutableArray arrayWithContentsOfFile:path];
-        NSArray *array =_Editarray;
+        NSMutableArray *array = [NSMutableArray arrayWithContentsOfFile:path];
         
         NSMutableArray *models = [NSMutableArray array];
         for (NSDictionary *dict in array) {
@@ -170,8 +169,8 @@ static NSString *identifier = @"cell";
 {
     
     if (editingStyle == UITableViewCellEditingStyleDelete){
- 
-        [_Editarray removeObjectAtIndex:indexPath.row];
+
+        [_datas removeObjectAtIndex:indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }

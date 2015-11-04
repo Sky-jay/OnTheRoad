@@ -10,7 +10,7 @@
 
 @interface SJFriendGroup : NSObject
 
-@property (nonatomic, strong) NSArray *friends;
+@property (nonatomic, strong) NSMutableArray *friends;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic) NSInteger online;
 

@@ -102,8 +102,6 @@ static NSString *headerViewIdentifier = @"headerView";
     }else{
         _friendGroup.isOpen = YES;
     }
-    
-   
     if (_headerViewClick) {
         _headerViewClick();
     }

@@ -10,14 +10,17 @@
 #import "SJFriendGroup.h"
 #import "SJFriend.h"
 #import "SJSectionHeaderView.h"
+#import "ContactsResultTableViewController.h"
 
-@interface SJContactsViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating>
+@interface SJContactsViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *groups;
-@property (nonatomic, strong)UISearchController *searchController;
+@property (nonatomic, strong) NSArray *arr;
+@property (nonatomic, strong) UISearchController *searchController;
 @end
 
 @implementation SJContactsViewController
+static NSString *identifier = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,14 +28,29 @@
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editAction:)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
-/****************************SearchController****************************************/
-    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    _searchController.dimsBackgroundDuringPresentation = NO;
+#pragma mark - SearchBar
+    [self loadSearchArray];
+    ContactsResultTableViewController *contactsResultVC = [[ContactsResultTableViewController alloc]initWithStyle:UITableViewStylePlain];
+    contactsResultVC.array = _arr;
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:contactsResultVC];
+    _searchController.searchResultsUpdater = contactsResultVC;
+    _searchController.dimsBackgroundDuringPresentation = YES;
     _searchController.hidesNavigationBarDuringPresentation = YES;
     _searchController.searchBar.frame = CGRectMake(0, 0, 375, 44);
-    
     _tableView.tableHeaderView = _searchController.searchBar;
-    _searchController.searchResultsUpdater = self;
+    
+}
+
+- (void)loadSearchArray
+{
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (int i = 0; i < self.groups.count; i++) {
+        SJFriendGroup *friendGroup = self.groups[i];
+        for (int j = 0; j < friendGroup.friends.count; j++) {
+            [tempArray addObject:friendGroup.friends[j]];
+        }
+    }
+    _arr = [NSArray arrayWithArray:tempArray];
 }
 
 -(void)editAction:(UIBarButtonItem *)barButtonItem
@@ -45,8 +63,6 @@
         barButtonItem.title = @"编辑";
     }
 }
-
-static NSString *identifier = @"cell";
 
 -(NSArray *)groups
 {
@@ -87,17 +103,15 @@ static NSString *identifier = @"cell";
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    
-    SJFriendGroup *friendGroup = self.groups[indexPath.section];
-    
-    SJFriend *friend = friendGroup.friends[indexPath.row];
-    
-    cell.imageView.image = [UIImage imageNamed:friend.icon];
-    cell.textLabel.text = friend.name;
-    cell.detailTextLabel.text = friend.status;
-    
-    cell.textLabel.textColor = friend.vip ? [UIColor redColor] : [UIColor blackColor];
-    
+        SJFriendGroup *friendGroup = self.groups[indexPath.section];
+        
+        SJFriend *friend = friendGroup.friends[indexPath.row];
+        
+        cell.imageView.image = [UIImage imageNamed:friend.icon];
+        cell.textLabel.text = friend.name;
+        cell.detailTextLabel.text = friend.status;
+        
+        cell.textLabel.textColor = friend.vip ? [UIColor redColor] : [UIColor blackColor];
     return cell;
 }
 
@@ -140,18 +154,13 @@ static NSString *identifier = @"cell";
 {
     SJFriendGroup *friendGroup = self.groups[indexPath.section];
     
-    NSMutableArray *array = [NSMutableArray arrayWithArray:friendGroup.friends];
-    
     if (editingStyle == UITableViewCellEditingStyleDelete){
-        
-        [array removeObjectAtIndex:indexPath.row];
-
+        //之前删除导致程序崩溃的原因是SJFriendGroup模型中的friend数组不是可变数组，修改成可变数组即可解决问题。
+        [friendGroup.friends removeObjectAtIndex:indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
-
-
 
 -(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -164,37 +173,13 @@ static NSString *identifier = @"cell";
     SJFriendGroup *sourceFriendGroup = self.groups[sourceIndexPath.section];
     
     SJFriend *sourceFriend = sourceFriendGroup.friends[sourceIndexPath.row];
-    NSMutableArray *sourceArray = [NSMutableArray arrayWithArray:sourceFriendGroup.friends];
-
-
-    SJFriend *tempFriend = sourceArray[sourceIndexPath.row];
    
- 
-    [sourceArray removeObjectAtIndex:sourceIndexPath.row];
+    [sourceFriendGroup.friends removeObjectAtIndex:sourceIndexPath.row];
     
-
     SJFriendGroup *destinationFriendGroup = self.groups[destinationIndexPath.section];
-    
-    SJFriend *destinationFriend = destinationFriendGroup.friends[destinationIndexPath.row];
-    NSMutableArray *destinationArray = [NSMutableArray arrayWithArray:destinationFriendGroup.friends];
 
-
-
-    [destinationArray insertObject:sourceFriend atIndex:destinationIndexPath.row];
+    [destinationFriendGroup.friends insertObject:sourceFriend atIndex:destinationIndexPath.row];
     
-}
-
-#pragma mark -UISearchResultsUpdating
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
-{
-    if ([searchController.searchBar.text isEqualToString:@""]) {
-        
-        return;
-    }
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[CD] %@",searchController.searchBar.text];
-    
-    [self.tableView reloadData];
 }
 
 @end

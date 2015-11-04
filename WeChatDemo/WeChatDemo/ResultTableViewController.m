@@ -7,6 +7,8 @@
 //
 
 #import "ResultTableViewController.h"
+#import "SJCellModel.h"
+#import "SJGroupBuyTableViewCell.h"
 
 @interface ResultTableViewController ()
 @property (nonatomic, strong)NSArray *results;
@@ -17,20 +19,22 @@
 static NSString *identifier = @"cell";
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[CD] %@", searchController.searchBar.text];
-    _results = [_datas filteredArrayUsingPredicate:predicate];
-    
+    NSString *filterString = searchController.searchBar.text;
+    if (filterString.length == 0) {
+        _results = _array;
+    }else{
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title CONTAINS[CD] %@", filterString];
+        _results = [_array filteredArrayUsingPredicate:predicate];
+    }
     [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
+    [self.tableView registerClass:[SJGroupBuyTableViewCell class] forCellReuseIdentifier:identifier];
+    self.tableView.rowHeight = 100;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 #pragma mark - Table view data source
 
@@ -44,9 +48,15 @@ static NSString *identifier = @"cell";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    SJGroupBuyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    SJCellModel *model = _results[indexPath.row];
+    cell.textLabel.text = model.title;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
+    cell.textLabel.textColor = [UIColor redColor];
     
-    cell.textLabel.text = _results[indexPath.row];
+    cell.detailTextLabel.text = model.price;
+    cell.SJLable.text = model.buycount;
+    cell.imageView.image = [UIImage imageNamed:model.icon];
     
     return cell;
 }

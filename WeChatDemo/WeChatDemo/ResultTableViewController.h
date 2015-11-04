@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ResultTableViewController : UITableViewController<UISearchResultsUpdating>
-@property (nonatomic, strong)NSArray *datas;
+@property (nonatomic, strong)NSArray *array;
 @end

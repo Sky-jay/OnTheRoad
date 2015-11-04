@@ -115,6 +115,11 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="m7m-tI-zWR">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="1ao-GY-MNX" kind="relationship" relationship="viewControllers" id="SPw-AC-ba3"/>
@@ -130,7 +135,11 @@
         <scene sceneID="5HB-aH-Ant">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1ao-GY-MNX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="团购" image="tabbar_mainframe.png" id="as6-V3-UuT"/>
+                    <tabBarItem key="tabBarItem" title="团购" image="tabbar_mainframe.png" id="as6-V3-UuT">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_mainframeHL@2x"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W9L-3n-6Nh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -149,7 +158,11 @@
         <scene sceneID="hN1-2d-GFe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WAL-qf-gew" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="通讯录" image="tabbar_contacts.png" id="8aF-aY-Wip"/>
+                    <tabBarItem key="tabBarItem" title="通讯录" image="tabbar_contacts.png" id="8aF-aY-Wip">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_contactsHL@2x"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uoE-r7-ljt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -175,7 +188,7 @@
                         <sections>
                             <tableViewSection id="yjX-5k-BRX">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CxO-hM-XSu">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="CxO-hM-XSu">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CxO-hM-XSu" id="Ycv-8f-nei">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -192,7 +205,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="EgF-wu-KUQ" kind="show" id="2Re-Lm-o65"/>
+                                            <segue destination="EgF-wu-KUQ" kind="push" id="fhg-na-lfd"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rhY-9F-n6l">
@@ -299,6 +312,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YaX-5y-y2O"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qbe-du-xfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -309,7 +323,11 @@
         <scene sceneID="Ufe-gu-teQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rmh-LZ-ojo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" image="tabbar_me.png" id="78b-DV-hA3"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="tabbar_me.png" id="78b-DV-hA3">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_meHL@2x"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B2m-Ve-Me7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -332,7 +350,10 @@
         <image name="MoreMyFavorites@3x.png" width="75" height="75"/>
         <image name="MoreSetting@3x.png" width="75" height="75"/>
         <image name="tabbar_contacts.png" width="27" height="23"/>
+        <image name="tabbar_contactsHL@2x" width="25" height="23"/>
         <image name="tabbar_mainframe.png" width="25" height="23"/>
+        <image name="tabbar_mainframeHL@2x" width="25" height="23"/>
         <image name="tabbar_me.png" width="23" height="23"/>
+        <image name="tabbar_meHL@2x" width="25" height="23"/>
     </resources>
 </document>

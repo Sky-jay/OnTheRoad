@@ -88,6 +88,7 @@
 		CC763D771BE4DEBE00B435F8 /* SJScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC763D761BE4DEBE00B435F8 /* SJScrollView.m */; };
 		CC763D7E1BE5003000B435F8 /* SJPhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC763D7D1BE5003000B435F8 /* SJPhotoAlbumViewController.m */; };
 		CC763D811BE5006F00B435F8 /* SJPhotoAlbumScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC763D801BE5006F00B435F8 /* SJPhotoAlbumScrollView.m */; };
+		CC81FEB01BE9F49C00B0FD17 /* ContactsResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC81FEAF1BE9F49C00B0FD17 /* ContactsResultTableViewController.m */; };
 		CC8291911BE62D49000A76E3 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8291901BE62D49000A76E3 /* WebViewController.m */; };
 		CC8A73911BE60616001270E0 /* ResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8A73901BE60616001270E0 /* ResultTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -200,6 +201,8 @@
 		CC763D7D1BE5003000B435F8 /* SJPhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJPhotoAlbumViewController.m; sourceTree = "<group>"; };
 		CC763D7F1BE5006F00B435F8 /* SJPhotoAlbumScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJPhotoAlbumScrollView.h; sourceTree = "<group>"; };
 		CC763D801BE5006F00B435F8 /* SJPhotoAlbumScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJPhotoAlbumScrollView.m; sourceTree = "<group>"; };
+		CC81FEAE1BE9F49C00B0FD17 /* ContactsResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsResultTableViewController.h; sourceTree = "<group>"; };
+		CC81FEAF1BE9F49C00B0FD17 /* ContactsResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsResultTableViewController.m; sourceTree = "<group>"; };
 		CC82918F1BE62D49000A76E3 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CC8291901BE62D49000A76E3 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CC8A738F1BE60616001270E0 /* ResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewController.h; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 			children = (
 				CC759B561BE3B24C001BAD26 /* SJContactsViewController.h */,
 				CC759B571BE3B24C001BAD26 /* SJContactsViewController.m */,
+				CC81FEAE1BE9F49C00B0FD17 /* ContactsResultTableViewController.h */,
+				CC81FEAF1BE9F49C00B0FD17 /* ContactsResultTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				CC759B521BE3B192001BAD26 /* SJFriendGroup.m in Sources */,
 				CC759B581BE3B24C001BAD26 /* SJContactsViewController.m in Sources */,
 				CC759B3E1BE39FC8001BAD26 /* SJGroupBuyViewController.m in Sources */,
+				CC81FEB01BE9F49C00B0FD17 /* ContactsResultTableViewController.m in Sources */,
 				CC8A73911BE60616001270E0 /* ResultTableViewController.m in Sources */,
 				CC759B481BE3A3EC001BAD26 /* SJCellModel.m in Sources */,
 				CC763D7E1BE5003000B435F8 /* SJPhotoAlbumViewController.m in Sources */,

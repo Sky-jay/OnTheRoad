@@ -21,10 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     [self addScrollView];
     
     [self addSubViewForScrollView];
-
+    self.hidesBottomBarWhenPushed = YES;
 }
 
 -(void)addScrollView
